@@ -1,1 +1,4 @@
 https://www.youtube.com/watch?v=llbtoQTt4qw&t=100s&ab_channel=DennisIvy
+
+stopped at 21:51 , about to add our first class based view
+stopped at 29:40 , about to start the detail view
