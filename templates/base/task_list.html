@@ -4,13 +4,14 @@
 <table>
     <tr>
         <th>Item</th>
-        <th>Item</th>
-
+        <th></th>
+        <th></th>
     </tr>
     {% for task in tasks %}
     <tr>
         <td>{{task.title}}</td>
         <td><a href="{% url 'task' task.id %}">View</a></td>
+        <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
     </tr>
     {% empty %}
         <h3>There are no items in the list currently</h3>

@@ -4,3 +4,4 @@ stopped at 21:51 , about to add our first class based view
 stopped at 29:40 , about to start the detail view
 stopped at 35:38
 stopped at 46:00 , ready to start the update view
+stopped at 49:11
