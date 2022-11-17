@@ -6,3 +6,5 @@ stopped at 35:38
 stopped at 46:00 , ready to start the update view
 stopped at 49:11
 stopped at 54:33
+stopped at 1:00:48
+
