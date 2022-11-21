@@ -9,5 +9,7 @@ stopped at 54:33
 stopped at 1:00:48
 stopped at 1:07:15, ready to start restrict a user
 stopped at 1:20:46, finished user specific data
+stopped at 1:32:14, finished register
+
 
 
