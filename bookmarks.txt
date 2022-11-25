@@ -11,6 +11,8 @@ stopped at 1:07:15, ready to start restrict a user
 stopped at 1:20:46, finished user specific data
 stopped at 1:32:14, finished register
 stopped at 1:37:43, about to start styling css
+stopped at 1:45:14, 
+
 
 
 
