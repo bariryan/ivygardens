@@ -30,41 +30,36 @@ Users are likely to fall into three categories. Users will be:
 
 3 - creating a list of tasks to refer to back to on repeat occasions
 
-#### Looking for inspiration
-- I would like to find recipes:
-    - by meal type 
-    - containing specific ingredients
-    - that cater for specific dietary requirements
-    - of a particular cuisine
-    - that are quick to cook
-    - that contain less calories
+#### I want to prioritze a series of tasks
+- I would like to make a list:
+    - by apponintment type 
+    - containing specific dates and times
+    - that can be recorded and completed
+    - new lists can be generated
+    - acess to a calendar     
 
 #### Wanting to share knowledge
 - I would like to be able to:
-    - add my recipes to the site
-    - provide details about the ingredients, cook time, calories and allergens relevant to the recipes
-    - easily edit my recipes
-    - delete recipes that I no longer wish to share
-    - let others know what recipes I have uploaded
+    - add my tasks to the site
+    - provide details about the completion status, date, time and importance
+    - easily edit my tasks
+    - delete tasks that I no longer need
 
-#### Creating a list of recipes
-- I would like to find recipes by the individuals who have uploaded them
-- I would like to bookmark recipes to create a personal list 
-- Create search list of recipes matching certain criteria and sort them into a sensible order
+#### Creating a list 
+- I would like to find tasks by the individuals who have uploaded them
+- I would like to bookmark tasks to create a personal list 
+- Create search list of tasks matching certain criteria and sort them by relavance
 
 ### Purpose
-This website is designed as an interactive front end website with a neat appearance and clear buttons to enable users to easily navigate around the site and to achieve their aims, above.
+This website is designed as an interactive front end website with a neat appearance and clear buttons to enable users to easily navigate around the site and to achieve their aims such as those listed above.
 
-Users' recipes are stored in a ***MongoDB*** non-SQL database accessed via ***Python*** backend code.
+Users' tasks are stored in a ***ElephantSQL*** PostgreSQL database accessed via ***Python*** backend code.
 
-The main menu is displayed at top right of the page in full on desktop devices or behind a burger button for smaller devices.
+Full functionality to enable a user to create a unique profile and password has been implemented.
 
-Upon accessing the site users can search the database by recipe or category. To access the full functionality of the site a user must 'log in' before they can add, edit or delete recipes.
+To access the full functionality of the site a user must 'register' before they can add, edit or delete tasks.
 
-To avoid confusion for the user options to add, edit or delete recipes are hidden from the menu until they have logged in.
-A user can log into the site by clicking the 'person' icon and entering their name in the modal displayed.
-
-At this stage full functionality to enable a user to create a unique profile and password has not been implemented.
+A user can can only acess tasks associated with their account, you will not be able to access the task lists of other users.
 
 The site comprises 7 pages that can be accessed from the main navigation bar and button options on the site.
 
