@@ -61,134 +61,33 @@ To access the full functionality of the site a user must 'register' before they 
 
 A user can can only acess tasks associated with their account, you will not be able to access the task lists of other users.
 
-The site comprises 7 pages that can be accessed from the main navigation bar and button options on the site.
+The site comprises of 5 pages that can be accessed from the main navigation bar and back buttons  on the site.
 
 The main navbar is displayed on all pages for ease of access to all pages in the site.
-A website map is contained within the respository. See "Website Layout" document in "design" folder in the repository for further information.
-
-#### Base Template
-Pages are called using backend ***Flask*** framework and rendered using ***Jinja2*** templating logic. A base template provides the main layout of the pages including navbar, title element and error modals. On each page Flask provides updated text for the title element so it is clear to the user which page they are on.
-
-#### Index
-The index page provides an overview of the site and options available to users.
-
-On mobile devices the index page is deliberately spartan with only essential detail due to viewport size limitations.
-
-#### Search Recipes
-Clicking the search button in the navigation bar provides two options:
-
-1 - search recipes
-
-2 - search categories
-
-##### Search recipes
-This page displays an unfiltered list of all recipes in the database.
-The list is paginated, limited to 10 results per page, to avoid excessive page length.
-
-At the top of the search list the user can select options to filter the search and reduce the number of results returned. The filter options are:
-- Favourites - only recipes marked as favourites by the user will be shown in the list
-- Meal - The user can select a specific meal type - "breakfast, lunch, dinner, snack, dessert or beverage"
-- Allergens - The user can select several allergens from "Dairy, Fish, Gluten, Nuts, Shellfish, Eggs and Vegetarian" to exclude recipes containing specific allergens/dietary requirements
-- Calories - The user can select to filter results by recipes that are below specific calorie levels, banded by <100, <200, <300, <500, <750, <1000 and >1000
-- Cooking Time - The user can select to filter results by the time they take to cook, banded by <10 minutes, <20 minutes, <30 minutes, <1 hour, <2 hours, <3 hours, >3 hours
-- Country - The user can filter the results by a cuisine, based on countries contained in the backend collection. The backend collection is built from the countries associated with recipes entered on the site. If none of the recipes contain information about their country of origin this filter option is omitted
-- Author - The user can filter the results by a specific author, based on the users contained in the backend collection. If a user has not entered any recipes or has deleted all their recipes the option to filter by that user will be omitted.
-
-Also at the top of the search list the user can select options to sort the list into ascending order based on:
-- Recipe Name
-- Cooking time
-- Calories or
-- Meal type
-
-A list of recipes matching the filter criteria is retrieved from the back end through ***Flask*** and displayed to the user on the page rendered via ***Jinja2*** template logic to build a list of the filtered recipes. 
-The user can click on any recipe which will then display, on the 'Display Recipe' page (below), the full information about that recipe.
-
-The 'home' button at the end of the page will take the user back to the index page.
-
-##### Search by category
-Search by categories is accessed, like search recipes, from the main search button, or from the browse button in the call to action on the index page.
-
-This page displays 6 categories against which the user can search:
-- Ingredients
-- Dietary
-- Difficulty
-- Meal
-- Country
-- Author
-
-Clicking on any option brings up the filter criteria. The filter criteria are generated from all documents in the specific backend collection relating to that category.
-
-By using the search category option the user can filter the results by several elements in one category (e.g. recipes containing several ingredients, recipes from more than one author or country or one more more meal type). The category search provides more focussed search results for users who may have a better idea of the specific type of recipe they are after compared the straight search results, above.
-Once the search options for the specific category have been selected by the user clicking 'search' will display a list of recipes, broken down by category.
-
-Again the user can return to the index page via the 'home' button at the bottom of the page.
-
-#### Display search by category results
-This page is accessed by clicking 'search' in the search by category page, above.
-The search results are grouped by the options selected on the previous page, e.g. all recipes containing Olive Oil.
-As there are likely to be several results in each option the results are contained within a 'collapsible' element which can be expanded by the user clicking on the caret. This avoids cluttering the page and providing a more pleasing visual experience for the user.
-
-In the mobile view a list of recipe names and pictures is displayed on collapsible elements that can be expanded to show further information (cooking time, calories and difficulty to cook) with the option to view the recipe in full. 
-
-On tablet and desktop devices this information is displayed immediately, not within a collapsible, as viewport space is not so much at a premium.
-
-Clicking on the 'eye' icon against the relevant recipe will display the full details of the recipe including cooking instructions.
-
-Session variables are used to store the user's choice of filters/sort fields to ensure, on returning to search page the filters are reapplied to the returned list of recipes.
-
-The 'back' button at the end of the page returns the user to the search by category page. 
 
 #### Add
-The option to add recipes is only displayed in the navigation bar if the user is logged in.
-This page can be accessed by the Add tab in the navigation bar.
-On loading this page displays a form that can be populated by the user with all information about the recipe they intend to upload.
+The option to add tasks is only displayed in the navigation bar if the user is logged in.
+This page can be accessed by the Add tab 'plus' symbol in the navigation bar.
+On loading this page displays a form that can be populated by the user with all information about the task they intend to upload.
 Required fields are:
-- Name of Recipe
-- Method (cooking instructions)
-- At least one ingredient with quantity (number of units are optional)
-
-The framework, ***Materialize***, form validation class is used to highlight errors on data entered in 'Cooking Time - minutes' and 'Calories' fields. These fields can accept numbers 0-59 and 0-5000 respectively. If invalid data is entered the input field is highlighted with a red line. 
-For fields 'ingredient name', 'hours', 'minutes', 'calories', and 'ingredient quantity' ***jQuery*** script prevents the user entering anything but text or numbers as appropriate to the field.
-Further data validation is undertaken by ***jQuery*** script on form submission. An error modal with full error message noting the invalid data if the user:
-- Does not input a name for the recipe,
-- Does not input a method for cooking the recipe,
-- Does not include at least one ingredient,
-- Inputs a figure of less than 0 or more than 59 minutes for cooking time, and/or
-- Inputs a figure of less than 0 or more than 5000 for calories.
-
-On submission of the ingredient by clicking the '+' button ***jQuery*** script validation is undertaken against the data entered. An error modal is displayed detailing the invalid data if the user:
-- Does not enter a name for the ingredient, and/or
-- Does not enter a quantity for the ingredient
+- Name of Task
+- Description of Task
+- Completion status of the Task
 
 The user can add the recipe to their list of favourites (or filtered searching, above) by clicking the star. Clicking again will remove the recipe from the list of favourites.
 
-On submission of a valid form the data is sent to the back end via ***jQuery*** form submission to the ***Flask*** framework. The recipe submitted is then displayed to the user on the 'Display Recipe' page (below).
-
 #### Edit
-The option to edit recipes is only displayed in the navigation bar if the user is logged in.
-
-If the user is viewing a recipe in the 'display recipe' page (below) selecting the 'Edit' menu tab opens this page.
-
-If, on the other hand, the user is not viewing a recipe the 'Edit' menu tab will bring up a list of recipes, in the same manner as the 'Search Recipes' list above.
-The recipes are, however, automatically filtered by the ***Flask*** backend framework with the user as the author. This ensures that recipes that have not been created by the user are not displayed for them to edit.
-An 'edit' icon is displayed against each recipe, in place of the 'favourite star' on the search recipe list, to denote to the user that they are in the 'edit recipe' list.
-Selecting a recipe from the list will open the Edit page for that specific recipe.
+The option to edit tasks is achieved by clicking on the task you wish to edit, this will take you to the task update page, which will appear to the user as the same page as the task creation form. Here you can edit your task title, description or completion status. A user may only edit tasks when he/she is logged into their account.
 
 The Edit page can also be accessed directly from the display recipe page, see below.
 
-This page is, in essence, the same as the Add recipe page but the fields are pre-populated with the data retrieved via ***Flask888 from the recipe in the ***MongoDB*** collection.
-Data lists and dictionaries are submitted via Flask from the back end. The page detail is then rendered using ***Jinja2*** templating logic.
 
-The user can return to Index or back to the list of recipes they can edit via the Home and Back buttons at the bottom of the page.
+The user can then return to the main page by clicking the 'subit' button when they have completed their edit or by using the go back button in the navigation bar. It is important to note that using the go back button will not commit your changes to save and so is an opt out option.
 
 #### Delete
-The option to delete recipes is only displayed in the navigation bar if the user is logged in.
+The option to delete tasks is only displayed as a graphic 'X' availble only to logged in users on the main task creation page, situated to the left of each task.
 
-If the user is viewing a recipe in the 'display recipe' page (below) selecting the 'Delete' menu tab will open a modal asking the user to confirm whether they wish to delete the recipe currently being viewed.
-
-If, on the other hand, the user is not viewing a recipe the 'Delete' menu tab will bring up a list of recipes, in the same manner as the 'Search Recipes' list above.
-The recipes are, however, automatically filtered by the ***Flask*** back end framework with the user as the author. This ensures that recipes that have not been created by the user are not displayed for them to delete.
-A 'delete' icon is displayed against each recipe, in place of the 'favourite star' on the search recipe list, to denote to the user that they are in the 'delete recipe' list.
+After clicking on the delete task icon the user will be brought to a seperate page and asked to confirm his/her choice. This confirmation process is implemented to avoid the possiblility of a mis-click whereby a user could delete a task by mistake and so a two step verification model has been put in place to avoid such an event.
 
 Selecting a recipe from the list will bring up a modal asking the user to confirm whether they wish to delete the selected recipe. The recipe selected for deletion is highlighted in red so it is clear to the user which has been selected.
 
