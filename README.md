@@ -65,7 +65,7 @@ The site comprises of 5 pages that can be accessed from the main navigation bar 
 
 The main navbar is displayed on all pages for ease of access to all pages in the site.
 
-#### Add
+#### Add task
 The option to add tasks is only displayed in the navigation bar if the user is logged in.
 This page can be accessed by the Add tab 'plus' symbol in the navigation bar.
 On loading this page displays a form that can be populated by the user with all information about the task they intend to upload.
@@ -76,114 +76,33 @@ Required fields are:
 
 The user can add the recipe to their list of favourites (or filtered searching, above) by clicking the star. Clicking again will remove the recipe from the list of favourites.
 
-#### Edit
+#### Edit task
 The option to edit tasks is achieved by clicking on the task you wish to edit, this will take you to the task update page, which will appear to the user as the same page as the task creation form. Here you can edit your task title, description or completion status. A user may only edit tasks when he/she is logged into their account.
 
 The Edit page can also be accessed directly from the display recipe page, see below.
 
 
-The user can then return to the main page by clicking the 'subit' button when they have completed their edit or by using the go back button in the navigation bar. It is important to note that using the go back button will not commit your changes to save and so is an opt out option.
+The user can then return to the main page by clicking the 'submit' button when they have completed their edit or by using the go back button in the navigation bar. It is important to note that using the go back button will not commit your changes to save and so is an opt out option.
 
-#### Delete
+#### Delete task
 The option to delete tasks is only displayed as a graphic 'X' availble only to logged in users on the main task creation page, situated to the left of each task.
 
 After clicking on the delete task icon the user will be brought to a seperate page and asked to confirm his/her choice. This confirmation process is implemented to avoid the possiblility of a mis-click whereby a user could delete a task by mistake and so a two step verification model has been put in place to avoid such an event.
 
-Selecting a recipe from the list will bring up a modal asking the user to confirm whether they wish to delete the selected recipe. The recipe selected for deletion is highlighted in red so it is clear to the user which has been selected.
+### Setting up our models and database
+For this project the chosen framework employed to complete the application is Django. Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. The database itself itself will be hosted on the clould by ElephantSQL, from which a PostgresSQL database has been deployed.
 
-#### Display recipe
-This page is displayed via:
-- Selecting a recipe from the 'Search recipes' list
-- Submitting a valid 'add recipe' form
-- Submitting a valid 'edit recipe' form
-
-If the user is logged in a dropdown button is displayed enabling the user to choose options to edit or delete the recipe.
-
-The recipe data is provided to the front end by the ***Flask*** framework and rendered using ***Jinja2*** template logic.
-
-The user can mark the recipe as a favourite by clicking the 'star' icon. Clicking again on the star removes the recipe from the user's list of favourites.
-
-### How does it work?
-
-#### Data processing and entry
-Recipe data is entered in the front end forms which are processed and validated using ***jQuery*** scripting and submitted to the back end which uses the ***Flask*** framework.
-***Python*** scripting is used to convert the received data into the appropriate format and submitted to the ***MongoDB*** collections.
-***Python***/***Flask*** is used to retrieve, filter and sort data from the ***MongoDB*** collections and pass to the front end for display.
-
-#### Database structure
-Conceptual database design was undertaken considering the entities, their relationships and attributes for the recipe data required for the site. (See "Conceptual Database Design" and "Data Relationships" documents in the "design" folder in the repository).
-
-Analysis of the data that would be handled and required by the site was undertaken before development. A list of attributes and data types was compiled (see "Database Layout" document in the "design" folder repository).
-
-A number of relationships were identified and an SQL relational database structure was considered. However as a community based website that anyone can access and upload recipes there is potential for the database size to increase drastically and the need for agile and flexible database management is required.
-There are many data elements for recipes and it is likely that further elements will need to be added in the future. The schema requirements of SQL databases would be unduly restrictive and require significant recoding if additional elements need to be added in the future.
-
-A noSQL document oriented database design was, therefore, preferred and ***MongoDB*** selected as the appropriate document database host.
-
-The ***MongoDB*** milestone-3 database contains 8 collections:
-- recipeDB
-- allergensDB
-- authorDB
-- countriesDB
-- difficultyDB
-- ingredientsDB
-- mealDB
-- usersDB
-
-The main collection, recipeDB, contains all recipes added to the site with primary information:
-- Name - string element - required for all recipes.
-- Favourite - array element of all users who have marked the recipe as their favourite for ease of sorting
-- Country - string element - country of origin of the recipe.
-- Picture - string element - URL of picture of dish.
-- Allergens - array of allergens contained in the recipe.
-- Meal - string element - type of meal for which the recipe is appropriate.
-- Difficulty - string element - indicates level of difficulty of the recipe.
-- Hours and minutes - number elements - cooking time of the recipe.
-- Calories - number element - number of calories contained in the recipe.
-- Method - string element - details on how to cook the recipe - required for all recipes.
-- cook_time - number element - calculated from hours and minutes for ease of sorting.
-- Ingredients - array - contains dictionaries of all ingredients in the recipe (name, amount and unit) - at least one ingredient dictionary is required for all recipes.
-
-The usersDB collection contains documents of each user who has created an ID on the site. Each user document contains an array of their favourite recipeIDs.
-This array cross refers to the Favourite array in the recipe document. 
-
-The following collections which each contain an array of the recipeID to which they apply are used to populate dropdown/filter and sort options across the site.
-
-The allergensDB collection contains a list of all allergens that it is envisaged will apply to any recipe. This collection is used to populate allergen drop down lists for editing and adding new recipes.
-
-The authorDB collection contains a list of all users who have added recipes to the site.  It is not possible for a recipe to be added without an author.
-
-The countriesDB collection contains a list of all countries added by users for recipes uploaded. 
-
-The difficultDB collection contains a list of the 3 difficulty levels applicable to recipes (Easy, Medium and Hard)
-
-The ingredientsDB collection contains a list of all ingredients added by users across the various recipes uploaded
-
-The mealDB collection contains a list of the 6 meal types it is envisaged will apply to any recipe (Breakfast, Lunch, Dinner, Dessert, Snack, Beverage)
-
-
-Although not implemented in this release it is envisaged that users will be able to add to the Allergens and Meal collections to provide further options.
+The main database table has a one to many relationship. Thereby allowing us to have one user and that user can have many items. Also it should be noted the dajango offers us prepopulated tables which will handle the authentication process needed for securing the site, this is very convienient. 
 
 ## Features
 ### Existing
 * Responsive design for ease of readability on various device sizes
-* Collapsible headers and bodies for search/filter options and recipe results to provide better read format
-* Hidden options to prevent users who are not logged in from editting, deleting or adding recipes
-* Ability for users to mark recipes as favourites to build up their own filtered list of results
+* Collapsible headers and bodies for search/filter options and task results to provide better read format
+* Hidden options to prevent users who are not logged in from editting, deleting or adding tasks
+* A visual representation of a calendar for reference
 * Branded colour co-ordinated style
 * Large, obvious buttons to help the user navigate the site
-* Animated and hidden menus on mobile devices for better user experience
-* Functionality for users to Create, Read, Update and Delete recipes from the site
-* Defensive design to prevent users from entering invalid data:
-    * Add/Edit recipes pages dropdown select menus for allergens, meal types ingredient units prevent user adding unexpected data
-    * ***jQuery*** form validation ensures the user cannot submit a recipe within all required fields completed
-    * ***jQuery*** form control prevents user entering text in number fields and vice versa
-    * Autocomplete of ingredient and countries field assists the user to user existing entries
-    * Lists of authors and countries in filter search is backend validated before supply to front end drop down list 
-    * Minutes field is ***jQuery*** validated to ensure minutes entered cannot be less than 0 or more than 59
-    * Calories field is ***jQuery*** validated to ensure calories entered cannot be less than 0 or more than 5000
-    * ***jQuery*** validation of category searches prevents user searching against an empty field
-    * Backend conversion of user entries to appropriate format for storing in ***MongoDB*** collections
+* Functionality for users to Create, Read, Update and Delete tasks from the site
 
 ### Potential
 - Within add/edit recipe forms - A feature that will automatically convert the minutes added to hours and minutes (if greater than 59)
