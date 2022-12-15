@@ -1,9 +1,19 @@
 # ToDo List Task Management application 
 
+## Example accounts 
+
+### FAO Code Institute Assessor
+For the purposes of examination 3 example accounts have been created for the attention of the code institute assessor.There is also the option to register a new account with the database which would be the inital action of a first time user.Enjoy! 
+
+1. Username = **paul**     password = **soapstone**
+2. Username = **Barry**    password = **plmoknqazwsx12345**
+3. Username = **mary**     password = **sandstone**
+
+	---
 ## UX Overview
 
 ### Brief
-This website has been created as a 'way to create, read, update and delete tasks' and to enable users from any location to view and upload their own tasks to a community site.
+This website has been created as a way to create, read, update and delete tasks and to enable users from any location to view and upload their own tasks to a community site.
 
 The objectives are to:
 
@@ -94,6 +104,7 @@ For this project the chosen framework employed to complete the application is Dj
 
 The main database table has a one to many relationship. Thereby allowing us to have one user and that user can have many items. Also it should be noted the dajango offers us prepopulated tables which will handle the authentication process needed for securing the site, this is very convienient. 
 
+---
 ## Features
 ### Existing
 * Responsive design for ease of readability on various device sizes
@@ -104,58 +115,23 @@ The main database table has a one to many relationship. Thereby allowing us to h
 * Large, obvious buttons to help the user navigate the site
 * Functionality for users to Create, Read, Update and Delete tasks from the site
 
-### Potential
-- Within add/edit recipe forms - A feature that will automatically convert the minutes added to hours and minutes (if greater than 59)
-- Customisable units - A feature that will enable users to add other unit types
-- The potential for users to add to the allergies and meal types collections providing greater options
-- Ingredient review/match - a feature to reduce multiple entries of same ingredient but to provide a preparation type (e.g. Beef - types Mince, Steak, Cutlet etc.)
-- Creation of unique user profile and password
-- Inclusion of an 'admin' account with privileges to edit and delete all recipes - this would, however, require password protection
-
-### Technologies Used
-#### Styling:
-
-The front-end site is styled using ***Materialize 1.0.0*** framework
-
-***Flask*** framework is used for back end application and interaction with front end 
-
-***Jinja2*** templating is used to iterate through data from backend for correct rendering of front end display
-
-A combination of ***Materialize 1.0.0*** and ***font-awesome 4.7.0*** icons were used throughout the site.
-
-#### Languages used:
-
-***Python3 v 3.6.8*** for back end implementation
-
-***jQuery*** and ***Javascript*** for front end interaction and DOM manipulation:
-
-- Menu animations
-- Button functionality
-- Form submission
-- Form data validation
-- Modal display
-
+---
 ## Testing
-Code was written through the AWS Cloud9 IDE.
+Code was written through the Gitpod Cloud IDE.
 The website has been tested during production on Chrome and then on IE, Safari and Opera browsers.
 See additional README document for specific testing undertaken.
 
-## Initial Wireframes
-Wireframes were designed using MarvelApp and can be located here:
-https://marvelapp.com/4b6hce4
-
 ## Deployment
-The Cookbook website is deployed using the Heroku platform and can be viewed at 'https://milestone-3-recipebook.herokuapp.com/'
+The ToDo list task management apllication is deployed using the Heroku platform and can be viewed at https://ivygardens.herokuapp.com/
 
 ### Deployment process
-The app and all associated documents were developed through AWS Cloud9 IDE.
 A git respository was created through the bash terminal and the the project was committed to the repository using the standard bash commit command.
 Commits to the respository were made at each major development stage or as issues were identified and fixed.
 
 The project was then deployed to Heroku through the Heroku online console, using the following steps:
-- Having logged into the Heroku platform a new app was created, titled 'milestone-3-recipebook'.
-- A git url was provided by Heroku on creating the app, 'https://git.heroku.com/milestone-3-recipebook.git'
-- The local git respository was linked to Heroku through the bash terminal command 'git remote add heroku https://git.heroku.com/milestone-3-recipebook.git
+- Having logged into the Heroku platform a new app was created, titled 'ivygardens'.
+- A git url was provided by Heroku on creating the app, https://ivygardens.herokuapp.com/
+
 - A requirements.txt file was created through the bash terminal command 'sudo pip3 freeze --local>requirements.txt'
 - The requirements.txt file was commited to the local git repository
 - A Procfile was created by bash terminal command 'echo web: python app.py > Procfile
@@ -165,51 +141,24 @@ The project was then deployed to Heroku through the Heroku online console, using
         - IP,
         - PORT,
         - SECRET, and
-        - MONGO_URI
+        - DATABASE_URI
 were set using the Heroku console.
 The local git repository was also pushed to github:
 
 The project was then deployed to Github:
-- A repository titled "cookbook" was created in Github.
-- A URL was supplied by GitHub "https://github.com/Shilldon/cookbook.git"
-- The remote repository was linked to the local git repository through the bash command 'git remote add origin https://github.com/Shilldon/cookbook.git
+- A repository titled "ivygardens" was created in Github.
+- A URL was supplied by GitHub https://github.com/bariryan/ivygardens
 - The local repository was pushed to the remote repository using bash command "git push -u origin master"
 
 The Github and Heroku repositories were linked using the Heroku console tab "Deploy" and selecting the option to connect to Github.
 
 The Github cookbook respository was located and linked to Heroku and the option for automatic deploys selected to ensure the code pushed to Github matched the build on the Heroku platform.
 
-The deployed project can be viewed at 'https://milestone-3-recipebook.herokuapp.com/'
+The deployed project can be viewed at https://ivygardens.herokuapp.com/
 
 To edit/run the code locally it is necessary to pull the code from the Heroku or Github repository. However, as the Heroku repository is intended for deployment purposes only it is recommended that the code is cloned from and pushed to the Github repository.
 
 Automatic deployment to Heroku ensures app is built from the latest code pushed to the Github repository.
-
-To clone from the Github repository:
-$ git: clone https://github.com/Shilldon/cookbook.git
-
-Changes can then be made to the cloned code and deployed to Github using bash commands:
-
-$ git add .
-$ git commit -m "commit message"
-$ git push -u origin master
-
-(If necessary to close from the Heroku repository:
-This can be achieved directly through the bash command:
-
-"$ heroku git: clone -a milestone-3-recipebook
-$ cd milestone-3-recipebook
-
-Changes can then be made to the cloned code and deployed to Heroku using bash commands:
-
-$ git add .
-$ git commit -m "commit message"
-$ git push heroku master")
-
-There are no differences between the development and deployed versions.
-
-
-$ pip install -r requirements.txt
 
 Other than a standard browser no further software or implementation is required and the site can be accessed at 'https://milestone-3-recipebook.herokuapp.com/'.
 
@@ -221,100 +170,19 @@ $ sudo pip3 install –r requirements.txt
 The app can then be run by navigating to the root folder and using bash command:
 $ python3 app.py
 
-### Validation
+## Validation
 * CSS
-    * jigsaw.w3.org was used for validation of css code and did not generate significant errors
+    * https://jigsaw.w3.org/css-validator/ was used for validation of css code and did not generate significant errors
 * HTML
-    * validator.w3.org was used for validation of HTML code. Errors were thrown on the raw HTML code by the use of ***Jinja2*** templating language which was not recognised by the validator.
-    * Validation was peformed a second time on the code rendered on site by copy and pasting from the 'view source' right click menu option.
-    
-        * The only errors of note were:
-            * Labels applying to hidden form element - however the syntax used was required to comply with the requirements of the ***Materialize*** framework to label lists correctly
-            * Link for google font was rejected by the validator but the link is as provided from Google Fonts
-            * Element ul is not allowed as child of ul - again, however, this syntax is required to comply with the requirements of the ***Materialize*** framework
-* jQuery
-    * codebeautify.org/jsvalidate and jshint.com/ were used for validation of ***jQuery*** code. No significant erros were generated
+    * https://validator.w3.org/ was used for validation of HTML code. 
+   
 
 * Python
-    * https://pep8ci.herokuapp.com/https://pep8ci.herokuapp.com/ was used to validate ***Python*** code and did not generate any errors.
+    * https://pep8ci.herokuapp.com/https://pep8ci.herokuapp.com/ was used to validate Python code and did not generate any errors.
 
 ## Acknowledgements
 
-### Images
-Images used under creative commons licence CC0
-
-Main background image - https://unsplash.com/photos/M4E7X3z80PQ by Brooke Lark on Unsplash
-
-Burger - https://pxhere.com/en/photo/1556449
-
-Fish and chips - https://pxhere.com/en/photo/1153129
-
-Lamb Curry - https://pxhere.com/en/photo/1430223
-
-Vegetarian Fajitas - https://pxhere.com/en/photo/1330790
-
-Pizza - https://pxhere.com/en/photo/1411428
-
-Toast - https://pxhere.com/en/photo/670056
+The greater part of this application, it's aesthetic, fundamental database structure and code logic is credited to Dennis Ivy https://www.youtube.com/c/DennisIvy?app=desktop
+Dennis Ivy is a youtube personality and django educator. His detailed tutorial found here https://www.youtube.com/watch?v=llbtoQTt4qw&t=1102s&ab_channel=DennisIvy served as the main inspiration for my task list project. 
 
 
-Category button images linked from pxhere.com used under Creative Commons CC0 licence
-
-Category button - Ingredients - https://pxhere.com/en/photo/1433267
-
-Category button - Dietary - https://pxhere.com/en/photo/1435829
-
-Category button - Difficulty - https://pxhere.com/en/photo/228377
-
-Category button - Meal - https://pxhere.com/en/photo/1516443
-
-Category button - Country - https://pxhere.com/en/photo/1521383
-
-Category button - Author - https://pxhere.com/en/photo/1401823
-
-Images were compressed using compressjpeg.com
-
-### Example recipes
-The text of some of the recipes was copied from BBCGoodFood:
-
-Sausage and Mash - https://www.bbcgoodfood.com/recipes/1359634/sausage-and-mash
-
-Burger - https://www.bbcgoodfood.com/recipes/1514/beef-burgers-learn-to-make
-
-Fish and chips - https://www.bbcgoodfood.com/recipes/5544/the-ultimate-makeover-fish-and-chips
-
-Lamb Curry - https://www.bbcgoodfood.com/recipes/slow-cooker-lamb-curry
-
-Vegetarian Fajitas - https://www.bbcgoodfood.com/recipes/veggie-fajitas
-
-Spaghetti Bolognese - https://www.bbcgoodfood.com/recipes/1502640/the-best-spaghetti-bolognese
-
-Pizza - https://www.bbcgoodfood.com/recipes/4683/pizza-margherita-in-4-easy-steps
-
-### Code
-#### Individual functions:
-Pagination ***jQuery*** plug in for materialize by Mirjam Skarica mirjamskarica@gmail.com - used under MIT licence (https://github.com/mirjamsk/materialize-pagination/blob/master/LICENSE) - https://github.com/mirjamsk/materialize-pagination
-
-Text/number only input for form fields ***jQuery*** plug in by Kevin Sheedy  - used under MIT licence (https://github.com/KevinSheedy/jquery.alphanum/blob/master/MIT-LICENSE.txt) - https://github.com/KevinSheedy/jquery.alphanum
-
-#### Libraries
-Automated testing:
-- Jasmine - https://jasmine.github.io
-
-Python Libraries:
-- Please see requirements.txt
-
-### Fonts/Icons
-Google Fonts - fonts.google.com - Roboto and Abril Fatface
-
-Font Awesome - https://fontawesome.com/v4.7.0/icons/
-
-Materialize css - https://materializecss.com/icons
-
-### Framework
-Materialize 1.0.0 - https://materializecss.com/
-
-Flask - https://www.fullstackpython.com/flask.html
-
-### Database
-MongoDB - https://www.mongodb.com/
