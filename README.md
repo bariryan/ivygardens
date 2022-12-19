@@ -89,9 +89,6 @@ The user can add the recipe to their list of favourites (or filtered searching, 
 #### Edit task
 The option to edit tasks is achieved by clicking on the task you wish to edit, this will take you to the task update page, which will appear to the user as the same page as the task creation form. Here you can edit your task title, description or completion status. A user may only edit tasks when he/she is logged into their account.
 
-The Edit page can also be accessed directly from the display recipe page, see below.
-
-
 The user can then return to the main page by clicking the 'submit' button when they have completed their edit or by using the go back button in the navigation bar. It is important to note that using the go back button will not commit your changes to save and so is an opt out option.
 
 #### Delete task
@@ -110,11 +107,11 @@ The main database table has a one to many relationship. Thereby allowing us to h
 * Responsive design for ease of readability on various device sizes
 * Collapsible headers and bodies for search/filter options and task results to provide better read format
 * Hidden options to prevent users who are not logged in from editting, deleting or adding tasks
-* A visual representation of a calendar for reference
 * Branded colour co-ordinated style
 * Large, obvious buttons to help the user navigate the site
 * Functionality for users to Create, Read, Update and Delete tasks from the site
-
+### Preposed 
+* A visual indication of time in the form of a calendar
 ---
 ## Testing
 Code was written through the Gitpod Cloud IDE.
